@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+    <style>
+        *{
+            background-color: beige;
+            color: blueviolet;
+        }
+        h2{
+           color: rebeccapurple; 
+        }
+        input{
+            color: rebeccapurple;
+            border: solid 3px;
+            border-radius: 5px;
+            border-color: rebeccapurple;
+            width: 40%;
+        }
+        button{
+            background-color: rgb(168, 106, 230);
+            border-radius: 5px;
+            font-size: 15px;
+            font: 400;
+        }
+    </style>
+</head>
+<body>
+    <h2>Add your items</h2>
+
+<input type="text" placeholder="Enter a Task" id="txtin">
+<button id="submit" onclick="additems()">ADD</button>
+
+<div id="items">
+    <ul id="todoList"></ul>
+</div>
+
+<script>
+    function additems() {
+        const input = document.getElementById("txtin");
+        const task = input.value.trim();
+
+        if (task === "") {
+            alert("Please enter a task");
+            return;
+        }
+
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <span class="todoItem">${task}</span>
+            <a href="#" onclick="this.parentElement.remove()" style="text-decoration: none;"> &#x1F5D1; </a>
+        `;
+
+        document.getElementById("todoList").appendChild(li);
+
+        input.value = "";
+    }
+
+    document.getElementById("txtin").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            additems();
+        }
+    });
+</script>
+</body>
+</html>

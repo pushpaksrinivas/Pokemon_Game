@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor Game</title>
+</head>
+<body>
+
+    <h2>Rock Paper Scissors</h2>
+
+    <button onclick="play('rock')">Rock</button>
+    <button onclick="play('paper')">Paper</button>
+    <button onclick="play('scissor')">Scissor</button>
+
+    <h3>You choose: </h3> <h3 id="useropt"></h3>
+    <h3>Computer choose: </h3> <h3 id="compopt"></h3>
+
+
+    <h4 id="result"></h4>
+
+    <script>
+        function play(user){
+            const cho = ["rock","paper","scissor"];
+            const comp = cho[Math.floor(Math.random()*3)]
+            
+
+
+            if(user===comp){
+                document.getElementById("result").innerHTML="Draw"
+                document.getElementById("useropt").innerHTML= user
+                document.getElementById("compopt").innerHTML= comp
+            }
+            else if(user==="paper" && comp==="rock"){
+                document.getElementById("result").innerHTML="win"
+                document.getElementById("useropt").innerHTML= user
+                document.getElementById("compopt").innerHTML= comp
+            }
+            else if(user==="scissor" && comp==="paper"){
+                document.getElementById("result").innerHTML="win"
+                document.getElementById("useropt").innerHTML= user
+                document.getElementById("compopt").innerHTML= comp
+            }
+            else if(user==="rock" && comp==="scissor"){
+                document.getElementById("result").innerHTML="win"
+                document.getElementById("useropt").innerHTML= user
+                document.getElementById("compopt").innerHTML= comp
+            }
+            else{
+                document.getElementById("result").innerHTML="Lose"
+                document.getElementById("useropt").innerHTML= user
+                document.getElementById("compopt").innerHTML= comp
+            }
+
+        }
+    </script>
+
+</body>
+
+
+</html>
