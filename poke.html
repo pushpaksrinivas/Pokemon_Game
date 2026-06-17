@@ -4,17 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poke API</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #ffcb05, #3b4cca);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 350px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #3b4cca;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #ffcb05;
+}
+
+button {
+    background-color: #3b4cca;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #2a3599;
+    transform: translateY(-2px);
+}
+
+#pokiimg {
+    margin-top: 20px;
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#pokinameDisplay {
+    margin-top: 15px;
+    font-size: 24px;
+    text-transform: capitalize;
+    color: #333;
+    font-weight: bold;
+}
+    </style>
 </head>
 <body>
-    <input id="pokiname" placeholder="enter a poki name" />
+    <div class="container">
+        <h3>Enter A Pokemon</h3>
+        <input id="pokiname" placeholder="Enter a Pokémon name or ID" />
 
-    <button onclick="pokidata()">search</button>
-    <br>
+        <button onclick="pokidata()">Search</button>
 
+        <img src="" id="pokiimg" />
 
-    <img src="" id="pokiimg" />
-
-    <h4 id="pokinameDisplay"></h4>
+        <h4 id="pokinameDisplay"></h4>
+    </div>
 
     <script>
      async function pokidata(params) {
